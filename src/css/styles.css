@@ -34,13 +34,15 @@ html {
   border-radius: 4px;
 }
 
-.search-btn {
+.search-btn,
+.load-more-btn {
   padding: 8px 16px;
   background-color: #4e75ff;
   border: none;
   border-radius: 8px;
   color: #ffff;
   font-size: 1.6rem;
+  cursor: pointer;
 }
 
 .gallery {
@@ -90,9 +92,6 @@ img {
   background: #808080;
   border-radius: 4px;
   overflow: hidden;
-  position: absolute;
-  left: 50%;
-  top: 50%;
 }
 .loader:before {
   content: '';
@@ -145,4 +144,27 @@ img {
   100% {
     transform: rotate(25deg);
   }
+}
+
+.load-more-btn {
+  position: absolute;
+  left: 50%;
+  margin: 10px;
+}
+
+body {
+  padding-bottom: 300px;
+  position: relative;
+}
+
+.loader-container {
+  position: absolute;
+  left: 50%;
+  top: 150px;
+}
+
+.loader-more-container {
+  position: absolute;
+  left: 51%;
+  bottom: 200px;
 }
