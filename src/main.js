@@ -5,7 +5,6 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
 
 const input = document.querySelector('.search-input');
-const searchBtn = document.querySelector('.search-btn');
 const gallery = document.getElementById('gallery');
 const form = document.querySelector('.search-form');
 const lightbox = new SimpleLightbox('.gallery li > a', {
@@ -15,20 +14,22 @@ const lightbox = new SimpleLightbox('.gallery li > a', {
 const loadMoreBtn = document.getElementById('load-more');
 
 let page = 1;
-let curentQ = '';
+let currentQ = '';
 
 async function searchImages() {
   const q = input.value.trim();
-  let loader = document.getElementById('loader-more-container');
+  let loader;
 
-  if (q !== '' && q !== curentQ) {
+  if (q !== '' && q !== currentQ) {
     page = 1;
-    curentQ = q;
+    currentQ = q;
     gallery.innerHTML = '';
     loader = document.getElementById('loader-container');
+  } else {
+    loader = document.getElementById('loader-more-container');
   }
 
-  const apiKey = '45978686-70839b27c443bdf6e9ef42e3a';
+  const apiKey = '45978686-70839b27c443bdf6e9ef42e3';
   const url = `https://pixabay.com/api/?key=${apiKey}&q=${q}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=40`;
 
   try {
@@ -52,7 +53,7 @@ async function searchImages() {
   } catch (error) {
     iziToast.error({
       title: '',
-      message: `Sorry, an error ocured: ${error}. Please try again!'`,
+      message: `Sorry, ${error.message}! Please try again!`,
       position: 'topRight',
     });
     console.error(error);
@@ -85,11 +86,5 @@ function displayImages(images) {
 
 form.addEventListener('submit', e => {
   e.preventDefault();
-
   searchImages();
 });
-
-// loadMoreBtn.addEventListener('click', e => {
-//   e.preventDefault();
-//   searchImages();
-// });
