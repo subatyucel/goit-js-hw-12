@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="form-container">
-      <form class="search-form">
+      <form class="search-form" id="search-form">
         <input
           type="text"
           placeholder="Search images..."
@@ -34,7 +34,14 @@
       <span class="loader" id="loader-more"></span>
     </div>
 
-    <button class="load-more-btn hidden" id="load-more">Load more</button>
+    <button
+      type="submit"
+      form="search-form"
+      class="load-more-btn hidden"
+      id="load-more"
+    >
+      Load more
+    </button>
     <script type="module" src="./main.js"></script>
   </body>
 </html>

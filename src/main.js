@@ -7,6 +7,7 @@ import axios from 'axios';
 const input = document.querySelector('.search-input');
 const searchBtn = document.querySelector('.search-btn');
 const gallery = document.getElementById('gallery');
+const form = document.querySelector('.search-form');
 const lightbox = new SimpleLightbox('.gallery li > a', {
   captionsData: 'alt',
   captionDelay: 250,
@@ -77,13 +78,13 @@ function displayImages(images) {
   lightbox.refresh();
 }
 
-searchBtn.addEventListener('click', e => {
+form.addEventListener('submit', e => {
   e.preventDefault();
 
   searchImages();
 });
 
-loadMoreBtn.addEventListener('click', e => {
-  e.preventDefault();
-  searchImages();
-});
+// loadMoreBtn.addEventListener('click', e => {
+//   e.preventDefault();
+//   searchImages();
+// });
