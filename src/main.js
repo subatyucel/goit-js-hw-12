@@ -50,7 +50,12 @@ async function searchImages() {
       page++;
     }
   } catch (error) {
-    console.error('Hata:', error);
+    iziToast.error({
+      title: '',
+      message: `Sorry, an error ocured: ${error}. Please try again!'`,
+      position: 'topRight',
+    });
+    console.error(error);
   } finally {
     loader.classList.add('hidden');
   }
