@@ -29,7 +29,7 @@ async function searchImages() {
     loader = document.getElementById('loader-more-container');
   }
 
-  const apiKey = '45978686-70839b27c443bdf6e9ef42e3';
+  const apiKey = '45978686-70839b27c443bdf6e9ef42e3a';
   const url = `https://pixabay.com/api/?key=${apiKey}&q=${q}&image_type=photo&orientation=horizontal&safesearch=true&page=${page}&per_page=40`;
 
   try {
